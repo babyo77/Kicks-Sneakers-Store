@@ -9,9 +9,9 @@
     -ms-overflow-style: none;
     scroll-behavior: smooth;
 }
-body::-webkit-scrollbar {
-    width: 0; 
-    height: 0;
+*::-webkit-scrollbar {
+    width: 0 !important; 
+    height: 0 !important;
 }
 
 html body{
