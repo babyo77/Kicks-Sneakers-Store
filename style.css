@@ -9,33 +9,110 @@
     -ms-overflow-style: none;
     scroll-behavior: smooth;
 }
+
 *::-webkit-scrollbar {
-    width: 0 !important; 
+    width: 0 !important;
     height: 0 !important;
 }
 
-html body{
- opacity: 0;
+html body {
+    opacity: 0;
     animation: fade 1.7s forwards;
 }
 
 @keyframes fade {
-    100%{
+    100% {
         opacity: 1;
     }
 }
 
 header {
-    z-index: 2;
-    display: flex;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.167);
+    z-index: 7;
+    display: grid;
     position: fixed;
     width: 100vw;
     backdrop-filter: blur(3px);
-    background: whitesmoke;
-    justify-content: space-between;
-    padding-right: 2.6rem;
+    background: rgb(245, 245, 245);
+    padding-right: 1rem;
     padding-left: 1rem;
+}
+
+header div:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    height: 0;
+    overflow: hidden;
+    align-items: center;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+#sign-in {
+    display: grid;
+    row-gap: .7rem;
+    width: 94.7vw;
+}
+
+.menu {
+    font-size: .9rem;
+}
+
+.menu div:nth-last-of-type(1) {
+    display: grid;
+    row-gap: .7rem;
+}
+
+.menu h3 {
+    font-weight: 400;
+    font-size: .8rem;
+    opacity: 0;
+}
+
+#user-menu:checked+.menu h3 {
+    animation: fadein 1s forwards ease-in-out;
+}
+#p1{
+    font-size: 1rem;
+}
+#p3{
+    color: #f50;
+}
+.menu p {
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    column-gap: .1rem;
+    opacity: 0;
+}
+
+.menu a:nth-of-type(1){
+    color: gray;
+}
+
+.menu a:hover{
+    color: #f50;
+}
+
+#user-menu:checked+.menu p {
+    animation: fadein 1s forwards ease-in-out;
+}
+
+@keyframes fadein {
+    100% {
+        opacity: 1;
+    }
+}
+
+#user-menu:checked+.menu {
+    animation: fadein .5s forwards ease-in-out;
+    height: 12rem;
 }
 
 .logo {
@@ -98,6 +175,8 @@ header nav:nth-of-type(2) {
 }
 
 .user {
+    margin-right: 1.6rem;
+    cursor: pointer;
     background-image: url(Assets/Images/user.png);
     background-position: center;
     background-size: contain;
@@ -107,14 +186,14 @@ header nav:nth-of-type(2) {
     transition: all .3s ease-in-out;
 }
 
-.hero{
+.hero {
     height: 40.7rem;
- display: flex;
- overflow: hidden;
- background-color: rgba(158, 158, 158, 0.052);
+    display: flex;
+    overflow: hidden;
+    background-color: rgba(158, 158, 158, 0.052);
 }
 
-.left{
+.left {
     cursor: default;
     display: grid;
     align-content: center;
@@ -124,62 +203,71 @@ header nav:nth-of-type(2) {
     padding: 1rem 2rem;
 }
 
-.title h1{
- font-size: 9vw;
+.title h1 {
+    font-size: 9vw;
 }
-.title h2{
+
+.title h2 {
     font-size: 3vw;
     margin-top: -3vw;
     margin-left: .6rem;
-   }
-   .left p{
+}
+
+.left p {
     margin-left: 1rem;
-   }
-.left button{
+}
+
+.left button {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     cursor: pointer;
     margin-left: 1rem;
-   width: fit-content;
-   padding: .7rem 1.7rem;
-   outline: none;
-   border: none;
-   border-radius: 3rem;
-   background-color: black;
-   color: white;
-   font-size: 1.07rem;
-   transition: all .3s ease-in-out;
+    width: fit-content;
+    padding: .7rem 1.7rem;
+    outline: none;
+    border: none;
+    border-radius: 3rem;
+    background-color: black;
+    color: white;
+    font-size: 1.07rem;
+    transition: all .3s ease-in-out;
 }
-.left button:hover{
+
+.left button:hover {
     background-color: #f50;
 }
-.right{
+
+.right {
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
 }
-.hero img{
+
+.hero img {
     cursor: pointer;
     max-width: 100%;
     mix-blend-mode: multiply;
     max-height: 100%;
-    transition: transform 0.3s ease-in-out; 
+    transition: transform 0.3s ease-in-out;
 }
 
 .hero img:hover {
-    transform: scale(1.01); 
+    transform: scale(1.01);
 }
-.banner1{
+
+.banner1 {
     margin-top: 1vw;
     display: grid;
 }
-.banner1 nav{
- display: flex;
- align-items: center;
- justify-content: space-between;
- padding: .7rem 2rem;
+
+.banner1 nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .7rem 2rem;
 }
-.banner1 a{
+
+.banner1 a {
     display: flex;
     align-items: center;
     column-gap: .4rem;
@@ -188,77 +276,79 @@ header nav:nth-of-type(2) {
     transition: all .3s ease-in-out;
 }
 
-.banner1 a:hover{
+.banner1 a:hover {
     color: black;
 }
 
-.banner1 a img{
+.banner1 a img {
     width: 1rem;
     height: 1rem;
 }
-.banner1 nav h1{
+
+.banner1 nav h1 {
     cursor: default;
     font-weight: 500;
 }
 
-.popular-collection{
+.popular-collection {
     cursor: pointer;
     display: flex;
     overflow: scroll;
 }
 
-.shoe{
-   display: flex; 
-   padding: 2vw 2rem;
-   align-items: center;
-   justify-content: center;
-   column-gap: 1rem;
+.shoe {
+    display: flex;
+    padding: 2vw 2rem;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
 }
 
-.shoe-details{
+.shoe-details {
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
-.shoe-image{
-   height: 22.3rem;
-   width: 22.3rem;
-   overflow: hidden;
+.shoe-image {
+    height: 22.3rem;
+    width: 22.3rem;
+    overflow: hidden;
 }
 
-.shoe img{
+.shoe img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
     transition: all .3s ease-in-out;
 }
 
-.shoe img:hover{
+.shoe img:hover {
     transform: scale(1.03);
 }
 
-.shoe h3{
+.shoe h3 {
     margin-top: .3rem;
     font-weight: 500;
 }
 
-.shoe h1{
+.shoe h1 {
     font-weight: 600;
 }
 
-.banner2 nav{
+.banner2 nav {
     margin-top: 2vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: .7rem 2rem;
-   }
-   .banner2 h1{
-    font-weight: 500;
-   }
+}
 
-   .featured-collection{
+.banner2 h1 {
+    font-weight: 500;
+}
+
+.featured-collection {
     display: flex;
     flex-wrap: wrap;
     column-gap: 1rem;
@@ -267,57 +357,62 @@ header nav:nth-of-type(2) {
     align-items: center;
     padding: 1vw 1rem;
     align-items: stretch;
-   }
+}
 
-   .featured-collection img{
-    width: 100%; 
+.featured-collection img {
+    width: 100%;
     height: 100%;
     transition: all .3s ease-in-out;
-   }
+}
 
-   .featured-collection img:hover{
-     transform: scale(1.03);
-   }
+.featured-collection img:hover {
+    transform: scale(1.03);
+}
 
-   .casuals{   
+.casuals {
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     height: 37rem;
     width: 29vw;
-   }
-   .sports{
-    overflow: hidden;
-   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    height: 40rem;
-    width: 66vw;
-   }
-   .sliders{
+}
+
+.sports {
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-   margin-top: -3rem;
+    height: 40rem;
+    width: 66vw;
+}
+
+.sliders {
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    margin-top: -3rem;
     height: 38rem;
     width: 29vw;
-   }
-   .sale{
+}
+
+.sale {
     overflow: hidden;
-   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border: 1px solid black;  
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: 1px solid black;
     height: 35rem;
     width: 66vw;
-   }
+}
 
 
-   .banner3{
+.banner3 {
     margin-top: 3vw;
     display: grid;
 }
-.banner3 nav{
- display: flex;
- align-items: center;
- justify-content: space-between;
- padding: .7rem 2rem;
+
+.banner3 nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .7rem 2rem;
 }
-.banner3 a{
+
+.banner3 a {
     display: flex;
     align-items: center;
     column-gap: .4rem;
@@ -326,32 +421,33 @@ header nav:nth-of-type(2) {
     transition: all .3s ease-in-out;
 }
 
-.banner3 a:hover{
+.banner3 a:hover {
     color: black;
 }
 
-.banner3 a img{
+.banner3 a img {
     width: 1rem;
     height: 1rem;
 }
-.banner3 nav h1{
+
+.banner3 nav h1 {
     cursor: default;
     font-weight: 500;
 }
 
-.new-arrivals{
+.new-arrivals {
     cursor: pointer;
     display: flex;
     overflow: scroll;
 }
 
-footer{
+footer {
     display: grid;
     margin-top: 3rem;
     background-color: #89898911;
 }
 
-.footer-content{
+.footer-content {
     margin-top: -2rem;
     display: flex;
     justify-content: space-between;
@@ -361,12 +457,12 @@ footer{
     column-gap: 7rem;
 }
 
-.footer-content ul{
+.footer-content ul {
     display: grid;
     row-gap: .3rem;
 }
 
-.footer-content span{
+.footer-content span {
     font-weight: 700;
 }
 
@@ -379,30 +475,32 @@ footer .logo {
     height: 10rem;
     width: 10rem;
 }
-footer a{
+
+footer a {
     text-decoration: none;
     color: black;
     font-weight: 500;
     transition: all .3s ease-in-out;
 }
 
-footer a:hover{
+footer a:hover {
     color: #f50;
 }
 
-.newsletter form{
+.newsletter form {
     display: grid;
     row-gap: .4rem;
 }
-.newsletter input{
-   height: 2.3rem;
-   border-radius: 3rem;
-   border: 1px solid gray;
-   outline: none;
-   padding: 0 1rem;
+
+.newsletter input {
+    height: 2.3rem;
+    border-radius: 3rem;
+    border: 1px solid gray;
+    outline: none;
+    padding: 0 1rem;
 }
 
-.newsletter button{
+.newsletter button {
     cursor: pointer;
     border-radius: 3rem;
     outline: none;
@@ -413,26 +511,26 @@ footer a:hover{
     transition: all .3s ease-in-out;
 }
 
-.newsletter button:hover{
+.newsletter button:hover {
     background-color: #f50;
 }
 
-header a{
+header a {
     text-decoration: none;
     color: black;
     font-weight: 500;
     transition: all .3s ease-in-out;
 }
 
-header a:hover{
+header a:hover {
     color: #f50;
 }
 
-.featured-collection button{
+.featured-collection button {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     z-index: 1;
     position: absolute;
-    margin:1rem;
+    margin: 1rem;
     background-color: rgba(0, 0, 0, 0.296);
     backdrop-filter: blur(10px);
     color: white;
@@ -445,19 +543,19 @@ header a:hover{
     transition: all .3s ease-in-out;
 }
 
-.sliders button{
- margin-top: 34rem;
+.sliders button {
+    margin-top: 34rem;
 }
 
-.sports button{
+.sports button {
     margin-top: 36rem;
-   }
+}
 
-   .sale button{
+.sale button {
     margin-top: 30.9rem;
-   }
+}
 
 
-   .featured-collection button:hover{
+.featured-collection button:hover {
     background-color: #f50;
-   }
+}
