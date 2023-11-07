@@ -560,7 +560,49 @@ header a:hover {
     margin-top: 30.9rem;
 }
 
-
 .featured-collection button:hover {
     background-color: #f50;
+}
+
+.alert{
+    position: fixed;
+backdrop-filter: blur(10px);
+background-color: rgba(0, 0, 0, 0.738);
+   height: 100vh;
+   display: none;
+   justify-content: center;
+   align-items: center;
+   width: 100vw;
+   z-index: 13;
+}
+
+.alert div{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 13rem;
+    border-radius: 1rem;
+    width: 20rem;
+    padding: 2rem 0;
+    box-shadow: rgba(108, 108, 108, 0.527) 0px 7px 29px 0px;
+    background-color: whitesmoke;
+}
+
+.alert div button{
+    padding: .7rem 7rem;
+    border-radius: 3rem;
+    outline: none;
+    border: none;
+    box-shadow: rgba(108, 108, 108, 0.16) 0px 7px 29px 0px;
+    background-color: #f50;
+    color: white;
+    cursor: pointer;
+}
+
+#Account{
+    cursor: pointer;
+}
+.alert div button:hover{
+    transition: all .4s ease-in-out;
+    background-color: black;
 }
