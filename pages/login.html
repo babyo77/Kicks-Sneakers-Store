@@ -10,9 +10,9 @@
     <div class="main">
         <img src="../Assets/Images/Nike Airmax.gif" alt="">
         <h1>Enter your email to join us or sign in</h1>
-        <form action="">
-            <input type="email" placeholder="Email address" required>
-            <input type="password" placeholder="Password" required>
+        <form action="../api/sign-up.php" method="post">
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="password" name="password" placeholder="Password" required>
             <p style="font-size: .7rem; padding-left: .5rem;">By continuing, I agree to Nike’s Privacy Policy and Terms of Use.</p>
             <button type="submit">Continue</button>
             <a href="">Forgot password?</a>
