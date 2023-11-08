@@ -45,7 +45,7 @@
             <div id="sign-in">
                 <?php
                 if($status==false){
-                echo '<p id="p4"><a id="p3" href="pages/login.php">Sign in</a> To Contine</p>';
+                echo '<p id="p4"><a id="p3" href="pages/login.php">Sign in</a> To Continue</p>';
                 }
                 else{
                     echo "<p id='p1'>Welcome $userEmail</p>";
