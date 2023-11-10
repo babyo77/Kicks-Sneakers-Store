@@ -1,17 +1,18 @@
 const logout = document.querySelector("#logout");
 const cancel = document.querySelector("#Cancel");
-const alert = document.querySelector(".alert");
+const alerts = document.querySelector(".alert");
 const Account = document.querySelector("#Account");
+const menu = document.querySelector("#user-menu");
 
 cancel.onclick=()=>{
-    alert.style.display="none"
+    alerts.style.display="none"
 }
 
 logout.onclick=()=>{
         fetch('api/logout.php')
           .then(response => {
             if (response.status === 200) {
-              alert.style.display = 'none';
+              alerts.style.display = 'none';
               location.reload()
             } else {
               alert('Logout failed');
@@ -23,5 +24,10 @@ logout.onclick=()=>{
       }
 
 Account.onclick=()=>{
-alert.style.display='flex'
+alerts.style.display='flex'
+menu.checked=false
+}
+
+alerts.onclick=()=>{
+  alerts.style.display="none"
 }

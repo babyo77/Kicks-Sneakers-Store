@@ -498,7 +498,7 @@ footer a:hover {
 }
 
 .newsletter input {
-    height: 2.3rem;
+    height: 2.4rem;
     border-radius: 3rem;
     border: 1px solid gray;
     outline: none;
@@ -512,7 +512,7 @@ footer a:hover {
     border: none;
     background-color: black;
     color: white;
-    padding: .7rem 0;
+    padding: .6rem 0;
     transition: all .3s ease-in-out;
 }
 
@@ -566,8 +566,7 @@ header a:hover {
 
 .alert{
     position: fixed;
-backdrop-filter: blur(10px);
-background-color: rgba(0, 0, 0, 0.738);
+background-color: rgba(0, 0, 0, 0.699);
    height: 100vh;
    display: none;
    justify-content: center;
@@ -606,3 +605,4 @@ background-color: rgba(0, 0, 0, 0.738);
     transition: all .4s ease-in-out;
     background-color: black;
 }
+
