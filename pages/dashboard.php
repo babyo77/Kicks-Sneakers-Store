@@ -1,12 +1,13 @@
 <?php
 session_start();
+$_SESSION['previous_page'] = $_SERVER['REQUEST_URI'];
 $userEmail;
  $status=false;
  if(isset($_SESSION['status']) && isset($_SESSION['user-email']) && $_SESSION['status']==true){
     $userEmail = $_SESSION['user-email'];
     $status = $_SESSION['status'];
  }else{
-    header('location: login.php');
+    header('Location: login.php');
     die();
 }
 ?>
@@ -23,8 +24,28 @@ $userEmail;
     ?>
 </head>
 <body>
+<div class="edit-profile-details">
+  <header id="close-profile-details"><svg style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="grid_system"/><g id="_icons"><path d="M5.3,18.7C5.5,18.9,5.7,19,6,19s0.5-0.1,0.7-0.3l5.3-5.3l5.3,5.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3   c0.4-0.4,0.4-1,0-1.4L13.4,12l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L12,10.6L6.7,5.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4   l5.3,5.3l-5.3,5.3C4.9,17.7,4.9,18.3,5.3,18.7z"/></g></svg></header>
+   
+<?php 
+include '../includes/db.php';
+
+$result = $con->query("SELECT * FROM `user` WHERE id={$_SESSION['user_info_id']}");
+if($result->num_rows>0){
+  while($row = $result->fetch_assoc()){
+    echo "<div class='user-details'>
+     <h1 style='text-transform:capitalize;'>Name: {$row['username']}</h1>
+     <h1>Email: {$row['email']}</h1>
+    </div>";
+  }
+}
+?>
+</div>
+<div class="edit-address-details">
+  <header id="close-address-details"><svg style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="grid_system"/><g id="_icons"><path d="M5.3,18.7C5.5,18.9,5.7,19,6,19s0.5-0.1,0.7-0.3l5.3-5.3l5.3,5.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3   c0.4-0.4,0.4-1,0-1.4L13.4,12l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L12,10.6L6.7,5.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4   l5.3,5.3l-5.3,5.3C4.9,17.7,4.9,18.3,5.3,18.7z"/></g></svg></header>
+</div>
     <?php
-      include '../includes/header.html';
+      include '../includes/dashboard-header.html';
     ?>
    <div class="main">
     <?php
@@ -38,7 +59,7 @@ $userEmail;
           <p>Edit Profile</p>
         </div>
       </a>
-      <a href="" class="your-orders">
+      <a href="../pages/order.php" class="your-orders">
         <img src="../Assets/Images/return.png" alt="profile">
         <div>
           <h1>Orders</h1>
@@ -62,47 +83,9 @@ $userEmail;
     </div>
     </div>
     <?php
-      include '../includes/footer.html';
+      include '../includes/dashboard-footer.html';
     ?>
-    <script>
-const logout = document.querySelector("#logout");
-const cancel = document.querySelector("#Cancel");
-const alerts = document.querySelector(".alert");
-const Account = document.querySelector("#Account");
-const menu = document.querySelector("#user-menu");
-const main = document.querySelector(".main");
-
-cancel.onclick=()=>{
-    alerts.style.display="none"
-}
-
-logout.onclick=()=>{
-        fetch('../api/logout.php')
-          .then(response => {
-            if (response.status === 200) {
-              alerts.style.display = 'none';
-              location.reload()
-            } else {
-              alert('Logout failed');
-            }
-          })
-          .catch(error => {
-            console.error('Error during logout:', error);
-          });
-      }
-
-Account.onclick=()=>{
-alerts.style.display='flex'
-menu.checked=false
-}
-
-alerts.onclick=()=>{
-  alerts.style.display="none"
-}
-
-main.addEventListener('mouseover',()=>{
-    menu.checked = false;
-})
-    </script>
+    <script src="../scripts/dashboard.js"></script>
 </body>
 </html>
+

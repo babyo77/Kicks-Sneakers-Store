@@ -1,3 +1,4 @@
+'use strict'
 const logout = document.querySelector("#logout");
 const cancel = document.querySelector("#Cancel");
 const alerts = document.querySelector(".alert");
@@ -6,13 +7,14 @@ const menu = document.querySelector("#user-menu");
 const close_bag_details = document.querySelector("#close-bag-details");
 const bag_items_details = document.querySelector(".bag-items-details");
 const bag = document.querySelector(".bag");
+const popup = document.querySelector(".popup");
 const cart = document.querySelectorAll(".cart-item");
 const badge = document.querySelector(".badge");
-let i = 0;
 const item = document.querySelector(".items");
 const total = document.querySelector(".checkout button h1");
 total.remove();
 const checkout = document.querySelector(".checkout");
+let i = 0;
 
 bag.onclick = (e) => {
   e.preventDefault();
@@ -37,7 +39,7 @@ cancel.onclick = () => {
 };
 
 logout.onclick = () => {
-  fetch("api/logout.php")
+  fetch("../api/logout.php")
     .then((response) => {
       if (response.status === 200) {
         alerts.style.display = "none";
@@ -67,7 +69,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-
+/* add to cart */
 
 let PreviousTotal = 0;
 
@@ -97,7 +99,7 @@ addToCartButtons.forEach((button) => {
 
     PreviousTotal += amountToAdd;
 
-    fetch("api/add_to_cart.php", {
+    fetch("../api/add_to_cart.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -154,12 +156,11 @@ function updateUI(productID) {
     if (document.querySelector(".items h2")) {
       document.querySelector(".items h2").remove();
     }
-    fetch(`api/product_details.php?product_id=${productID}`)
+    fetch(`../api/product_details.php?product_id=${productID}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("error");
         }
-      
         return response.json();
       })
       .then((product) => {
@@ -197,7 +198,7 @@ function updateUI(productID) {
           button.addEventListener("click", function () {
             var productId =
               this.closest(".cart-item").getAttribute("data-cart-id");
-            fetch("api/remove_from_cart.php", {
+            fetch("../api/remove_from_cart.php", {
               method: "POST",
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -238,7 +239,7 @@ var removeFromCartButtons = document.querySelectorAll(".remove-from-cart-btn");
 removeFromCartButtons.forEach((button) => {
   button.addEventListener("click", function () {
     var productId = this.closest(".cart-item").getAttribute("data-cart-id");
-    fetch("api/remove_from_cart.php", {
+    fetch("../api/remove_from_cart.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -253,7 +254,6 @@ removeFromCartButtons.forEach((button) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         if(data.cart==0){
           document.querySelector(".checkout button").remove()
         }

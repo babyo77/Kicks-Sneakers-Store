@@ -78,6 +78,7 @@ header div:nth-of-type(1) {
 #user-menu:checked+.menu h3 {
     animation: fadein 1s forwards ease-in-out;
 }
+
 #p1{
     text-transform: capitalize;
     font-size: 1rem;
@@ -307,6 +308,7 @@ header nav:nth-of-type(2) {
     align-items: center;
     justify-content: center;
     column-gap: 1rem;
+    text-transform: capitalize;
 }
 
 .shoe-details {
@@ -606,3 +608,206 @@ background-color: rgba(0, 0, 0, 0.699);
     background-color: black;
 }
 
+.bag .badge{
+    position: absolute;
+    padding-left: 1.2rem;
+    color: #f50;
+}
+
+.bag-items-details{
+    display: grid;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    position: fixed;
+    z-index: 17;
+    background-color: white;
+    width: 100vw;
+    transform: translateX(100vw);
+    height: 100vh;
+}
+
+.bag-items-details header{
+    background-color: white;
+    box-shadow: none;
+    padding: .7rem;
+    padding-right: 71vw;
+    justify-content: right;
+}
+
+.bag-items-details svg{
+   fill: black;
+    height: 2rem;
+    width: 2rem;
+    transition: all .4s ease-in-out;
+}
+
+.bag-items-details svg:hover{
+    cursor: pointer;
+    fill: #f50;
+}
+
+.slidein-items{
+    animation: sildeinitems .5s forwards;
+}
+
+@keyframes sildeinitems{
+    0%{
+        transform: translateX(100vw);
+    }
+    100%{
+        transform: translateX(70vw);
+    }
+}
+
+.slideout-items{
+    animation: sildeoutitems .5s forwards;
+}
+
+@keyframes sildeoutitems{
+    0%{
+        transform: translateX(77vw);
+    }
+    100%{
+        transform: translateX(100vw);
+    }
+}
+
+.items{
+    z-index: 17;
+     position: relative;
+     top: 7%;
+     padding: 1rem;
+     font-size: .8rem;
+}
+
+.items h1{
+    font-weight: 600;
+}
+
+img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+    display: none;
+}
+
+.cart-item{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+.cart-item h1{
+    font-size: 1.7vw;
+}
+.cart-item .shoe-image{
+    height: 7.7rem;
+    width: 7.7rem;
+}
+.cart-item h3{
+    font-size: 1vw;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.cart-item img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#quantity {
+    margin-top: .2rem;
+    font-size: 1rem;
+    padding:0 .2rem;
+    border-radius: 0;
+    border: 1px solid rgba(56, 56, 56, 0.56);
+    width: 2.7rem;
+    height: 1.7rem;
+    
+}
+
+.popup{
+    z-index: 10;
+    position: fixed;
+    top: 13%;
+    bottom: 0;
+    right: 0;
+    background-color: #f50;
+    color: white;
+    border-radius: .3rem;
+    height: 3rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.4rem;
+}
+
+.popup h1{
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.in{
+    animation: in .4s forwards;
+}
+
+@keyframes in{
+    0%{
+        right: -100%;
+    }
+    100%{
+        right: 1.9%;
+    }
+}
+
+.items{
+    overflow: scroll;
+    margin-bottom: 4rem;
+}
+
+.checkout h1{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.checkout button{
+    display: flex;
+    background-color: #f50;
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 3rem;
+    font-size: 1rem;
+    padding: .4rem 1rem;
+    transition: all .3s ease-in-out;
+}
+
+.checkout button:hover{
+    background-color: rgba(0, 0, 0, 0.296);
+}
+.checkout{
+    margin-top: .9rem;
+    z-index: 10;
+    text-align: center;
+    padding: 0 2vh;
+    position: fixed;
+    gap: .4rem;
+    display: grid;
+    align-items: center;
+}
+
+.items h2{
+    margin: 37vh 9.5vw;
+    font-weight: 500;
+}
+.shoe-price button{
+    text-transform: capitalize;
+    background-color: rgba(0, 0, 0, 0.566);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-left: .5rem;
+    font-size: .8rem;
+    padding: .3rem 1rem;
+    transition: all .3s ease-in-out;
+}
+
+.shoe-price button:hover {
+    background-color: #f50;
+}

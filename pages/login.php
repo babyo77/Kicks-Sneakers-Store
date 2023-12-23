@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['user-email']) && $_SESSION['status'] === true) {
-    header('location: ../index.php');
+    header('Location: ../index.php');
     exit();
 }
 ?>
@@ -18,7 +18,7 @@ if (isset($_SESSION['user-email']) && $_SESSION['status'] === true) {
 <body>
     <div class="main">
         <form action="../api/login.php" method="post" id="form">
-            <img src="../Assets/Images/Nike Airmax.gif" alt="">
+            <img src="../Assets/Images/Nike Airmax.gif" alt="" onclick="window.location.href='../index.php'">
             <h1>Enter your email to join us or sign in</h1>
             <input type="email" id="email" name="email" placeholder="Email address" required>
             <input type="password" name="password" placeholder="Password" required>

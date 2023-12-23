@@ -29,6 +29,7 @@
 }
 
 img{
+    cursor: pointer;
     height: 11rem;
     width: 13rem;
     justify-self: center;

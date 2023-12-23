@@ -39,6 +39,7 @@ flex-wrap: wrap;
 }
 
 .main h1{
+    text-transform: capitalize;
     font-weight: 600;
     font-size: 1.7rem;
     text-align: left;
@@ -120,3 +121,92 @@ animation: divfade .4s  forwards;
     justify-content: center;
     align-items: center;
    }
+
+.edit-profile-details{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    position: fixed;
+    z-index: 17;
+    background-color: white;
+    width: 100vw;
+    transform: translateX(100vw);
+    height: 100vh;
+}
+
+.edit-profile-details header{
+    background-color: white;
+    box-shadow: none;
+    padding: 1rem 8rem;
+    justify-content: right;
+}
+
+.edit-profile-details svg{
+   fill: black;
+    height: 2.7rem;
+    width: 2.7rem;
+    transition: all .4s ease-in-out;
+}
+
+.edit-profile-details svg:hover{
+    cursor: pointer;
+    fill: #f50;
+}
+
+.edit-address-details{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    position: fixed;
+    z-index: 17;
+    background-color: white;
+    width: 100vw;
+    transform: translateX(100vw);
+    height: 100vh;
+}
+
+.edit-address-details header{
+    background-color: white;
+    box-shadow: none;
+    padding: 1rem 8vw;
+    justify-content: right;
+}
+
+.edit-address-details svg{
+   fill: black;
+    height: 2.7rem;
+    width: 2.7rem;
+    transition: all .4s ease-in-out;
+}
+
+.edit-address-details svg:hover{
+    cursor: pointer;
+    fill: #f50;
+}
+
+.user-details{
+    padding: 0 3rem;
+    margin-top: 7rem;
+}
+
+.slidein{
+    animation: sildeinprofile .7s forwards;
+}
+
+@keyframes sildeinprofile{
+    0%{
+        transform: translateX(100vw);
+    }
+    100%{
+        transform: translateX(7.5vw);
+    }
+}
+
+.slideout{
+    animation: sildeinprofileout .7s forwards;
+}
+
+@keyframes sildeinprofileout{
+    0%{
+        transform: translateX(7.5vw);
+    }
+    100%{
+        transform: translateX(100vw);
+    }
+}
